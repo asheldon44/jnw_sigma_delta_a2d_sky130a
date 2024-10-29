@@ -1,0 +1,3 @@
+source ../tech/magic/.magicrc
+addpath ../design/JNW_SIGMA_DELTA_A2D_SKY130A
+addpath ../design/JNW_ATR_SKY130A

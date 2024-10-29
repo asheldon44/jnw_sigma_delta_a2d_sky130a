@@ -1,0 +1,15 @@
+library: JNW_SIGMA_DELTA_A2D_SKY130A
+cell: JNW_SIGMA_DELTA_A2D
+author: Anonymous
+github: analogicus
+tagline: The answer is 42
+email: anon@anon.com
+url: analogicus.github.io
+doc:
+  # Make docs
+  #libraries:
+  #   <library>:
+  #       - <cell>
+  #       - <cell>
+sim:
+  # <simdir>: command

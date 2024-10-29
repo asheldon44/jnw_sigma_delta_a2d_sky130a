@@ -1,0 +1,4 @@
+include ../tech/make/sim.make
+
+LIB=JNW_SIGMA_DELTA_A2D_SKY130A
+CELL=JNW_SIGMA_DELTA_A2D
