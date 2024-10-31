@@ -1,0 +1,9 @@
+options:
+  useTmpDir: False
+  sha: True
+corner:
+  Lay: ''
+  Sch: ''
+ngspice:
+  library: JNW_SIGMA_DELTA_A2D_SKY130A
+  cell: JNW_SIGMA_DELTA_A2D
