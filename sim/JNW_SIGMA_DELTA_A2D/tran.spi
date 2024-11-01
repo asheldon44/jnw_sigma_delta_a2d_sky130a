@@ -11,20 +11,24 @@
 *-----------------------------------------------------------------
 * OPTIONS
 *-----------------------------------------------------------------
-.option TNOM=27 GMIN=1e-15 reltol=1e-3
+.option TNOM=27 GMIN=1e-15 reltol=1e-4
 
 *-----------------------------------------------------------------
 * PARAMETERS
 *-----------------------------------------------------------------
 .param TRF = 10p
+.param vdd = 1.8
+.param AVDD = 1.8
+.param per = 1/16e6
 
-.param AVDD = {vdda}
+.model mysw SW vt{vdd/2} ron=10k roff=1gig"
 
 *-----------------------------------------------------------------
 * FORCE
 *-----------------------------------------------------------------
-VSS  VSS  0     dc 0
-VDD  VDD_1V8  VSS  pwl 0 0 10n {AVDD}
+V_ground  VSS  0     dc 0
+V_sup  VDD_1V8  VSS  dc {AVDD}
+V_IN IN VSS dc {vdd/2} sin({vdd/2} {vdd/4} 100k 1n 0 0)
 
 *-----------------------------------------------------------------
 * DUT
@@ -34,8 +38,7 @@ VDD  VDD_1V8  VSS  pwl 0 0 10n {AVDD}
 *----------------------------------------------------------------
 * PROBE
 *----------------------------------------------------------------
-.save all
-
+.save xdut.q xdut.qn xdut.res xdut.resb xdut.vcmp xdut.p1 xdut.p2 xdut.vo1 xdut.vo2
 
 *----------------------------------------------------------------
 * NGSPICE control
@@ -46,13 +49,11 @@ set color0=white
 set color1=black
 unset askquit
 
-optran 0 0 0 1n 1u 0
+op
 
-
-tran 1n 10n 1p
+tran 0.25n 100u
 write
 quit
-
 
 .endc
 
